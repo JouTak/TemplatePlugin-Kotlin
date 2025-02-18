@@ -14,18 +14,18 @@ class EmptyPlugin : JavaPlugin() {
 
     private var customConfig = YamlConfiguration()
 
-/*    private fun loadConfig() {
+    private fun loadConfig() {
         val fx = File(dataFolder, "config.yml")
         if (!fx.exists()) {
             saveResource("config.yml", true)
         }
-    }*/
+    }
 
     override fun onEnable() {
         // Plugin startup logic
         instance = this
 
-//        loadConfig()
+        loadConfig()
 
         // Register commands and events
 
