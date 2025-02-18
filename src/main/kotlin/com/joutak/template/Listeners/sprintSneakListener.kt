@@ -15,6 +15,7 @@ class sprintSneakListener: Listener {
         val boots = player.inventory.boots
 
         if(!player.isSprinting) return
+        if(player.isSneaking) return
 
         if(boots == null) return
         if(!boots.hasItemMeta()) return
