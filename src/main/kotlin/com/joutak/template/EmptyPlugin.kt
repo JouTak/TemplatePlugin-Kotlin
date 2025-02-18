@@ -1,5 +1,7 @@
 package com.joutak.template
 
+import com.joutak.template.Listeners.sprintSneakListener
+import com.joutak.template.commands.speedBootsCommand
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
@@ -11,7 +13,6 @@ class EmptyPlugin : JavaPlugin() {
     }
 
     private var customConfig = YamlConfiguration()
-
     private fun loadConfig() {
         val fx = File(dataFolder, "config.yml")
         if (!fx.exists()) {
@@ -28,9 +29,27 @@ class EmptyPlugin : JavaPlugin() {
         // Register commands and events
 
         logger.info("Template plugin version ${pluginMeta.version} enabled!")
+
+        registerListeners()
+        registerCommands()
+
+    }
+
+    private fun registerCommands(){
+        getCommand("speed-boots")?.setExecutor(speedBootsCommand())
+
+        logger.info("Registered commands")
+
+    }
+
+    private fun registerListeners(){
+        server.pluginManager.registerEvents(sprintSneakListener(), this)
+
+        logger.info("Registered listeners")
     }
 
     override fun onDisable() {
         // Plugin shutdown logic
+        logger.info("Template plugin version ${pluginMeta.version} disabled!")
     }
 }
