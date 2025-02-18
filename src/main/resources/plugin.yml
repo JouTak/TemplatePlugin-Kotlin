@@ -2,3 +2,7 @@ name: Template
 version: '$version'
 main: com.joutak.template.EmptyPlugin
 api-version: '1.20'
+commands:
+  speed-boots:
+    description: Gives boots that give you speed when you crouch
+
