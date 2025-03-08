@@ -1,4 +1,20 @@
-name: Template
+name: EffectZone
 version: '$version'
-main: com.joutak.template.EmptyPlugin
+main: com.joutak.effectZone.EffectZonePlugin
 api-version: '1.20'
+
+commands:
+  zone:
+    description: Управление зонами с эффектами
+    usage: |
+      /zone add <name> <effect> <x1> <y1> <z1> <x2> <y2> <z2>
+      /zone remove <name>
+      /zone list
+      /zone info <name>
+    permission: zone.admin
+    permission-message: У вас нет прав для использования этой команды.
+
+permissions:
+  zone.admin:
+    description: Позволяет управлять зонами с эффектами
+    default: op
