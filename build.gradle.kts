@@ -46,7 +46,7 @@ tasks.jar {
 }
 
 tasks.processResources {
-    val props = mapOf("version" to version)
+    val props = mapOf("version" to version, "pluginName" to project.name)
     inputs.properties(props)
     filteringCharset = "UTF-8"
     filesMatching("plugin.yml") {
