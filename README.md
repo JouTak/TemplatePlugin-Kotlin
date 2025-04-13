@@ -1,5 +1,13 @@
-# JouTak Tempplate
-Template plugin for JouTak <ins>(joutak.ru-mc.ru)</ins>
+# JouTak Plugin Template (Kotlin)
+Заготовка для плагина на JouTak (ДжойТек) (<ins>joutak.ru-mc.ru</ins>)
+
+# Перед использованием
+
+1. Отредактируйте:
+    - `settings.gradle.kts` &mdash; укажите название проекта
+    - `gradle.properties` &mdash; укажите версию плагина, commitHash оставьте пустым
+    - `src/main/kotlin/com/joutak/` &mdash; переименуйте под название вашего проекта
+    - `src/main/resources/plugin.yml` &mdash; укажите правильный путь до класса плагина
 
 Что нужно сделать:
 1) склонить проект (форк) себе по ssh 

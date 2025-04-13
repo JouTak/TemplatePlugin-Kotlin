@@ -1,4 +1,4 @@
-group = "com.joutak"
+group = "ru.joutak"
 version = System.getProperty("version")
 val commitHash = System.getProperty("commitHash")
 if (commitHash.isNotBlank()) {
@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
 }
