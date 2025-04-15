@@ -8,6 +8,8 @@
     - `gradle.properties` &mdash; укажите версию плагина, commitHash оставьте пустым
     - `src/main/kotlin/com/joutak/` &mdash; переименуйте под название вашего проекта
     - `src/main/resources/plugin.yml` &mdash; укажите правильный путь до класса плагина
+    - `.run/build_snapshot_run.xml` &mdash; расскоментируйте и укажите путь до сервера в ключе SERVER_PATH
+   
 
 Что нужно сделать:
 1) склонить проект (форк) себе по ssh 

@@ -3,6 +3,9 @@
     <ExternalSystemSettings>
       <option name="env">
         <map>
+          <!--
+            <entry key="SERVER_PATH" value="" />
+          -->
           <entry key="TESTING" value="1" />
         </map>
       </option>
