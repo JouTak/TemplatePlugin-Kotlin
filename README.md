@@ -31,3 +31,5 @@
 ```
 /sync del <название области>
 ```
+
+![2025-04-15_21 32 54](https://github.com/user-attachments/assets/722cf7ea-a211-42d8-8d50-1213c2f840df)
