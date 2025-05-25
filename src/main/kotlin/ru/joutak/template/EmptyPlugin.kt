@@ -1,4 +1,4 @@
-package com.joutak.template
+package ru.joutak.template
 
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.java.JavaPlugin
@@ -19,18 +19,22 @@ class EmptyPlugin : JavaPlugin() {
         }
     }
 
+    /**
+     * Plugin startup logic
+     */
     override fun onEnable() {
-        // Plugin startup logic
         instance = this
 
         loadConfig()
 
         // Register commands and events
 
-        logger.info("Template plugin version ${pluginMeta.version} enabled!")
+        logger.info("Плагин ${pluginMeta.name} версии ${pluginMeta.version} включен!")
     }
 
+    /**
+     * Plugin shutdown logic
+     */
     override fun onDisable() {
-        // Plugin shutdown logic
     }
 }
