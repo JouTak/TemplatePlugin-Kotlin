@@ -1,5 +1,7 @@
 name: '$pluginName'
-version: '$version'
+version: '$pluginVersion'
 main: ru.joutak.template.EmptyPlugin
-api-version: '1.21.4'
-depend: [ 'KotlinPlugins' ] # don't remove KotlinPlugin dependency
+api-version: '$minecraftVersion'
+depend: []
+libraries:
+  - "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"

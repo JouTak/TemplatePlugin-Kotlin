@@ -1,14 +1,13 @@
 group = "ru.joutak"
-version = System.getProperty("version")
+version = System.getProperty("pluginVersion")
 val commitHash = System.getProperty("commitHash")
 if (commitHash.isNotBlank()) {
     version = "$version-$commitHash"
 }
 
-val targetJavaVersion = 21
 plugins {
-    kotlin("jvm") version "2.1.0"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    kotlin("jvm") version (System.getProperty("kotlinVersion"))
+    id("com.github.johnrengelman.shadow") version ("8.1.1")
 }
 
 repositories {
@@ -22,14 +21,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
-    compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compileOnly("io.papermc.paper:paper-api:${System.getProperty("minecraftVersion")}-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib")
 }
 
-
 kotlin {
-    jvmToolchain(targetJavaVersion)
+    jvmToolchain(System.getProperty("javaVersion").toInt())
 }
 
 tasks.shadowJar {
@@ -52,7 +49,13 @@ tasks.jar {
 }
 
 tasks.processResources {
-    val props = mapOf("version" to version, "pluginName" to project.name)
+    val props =
+        mapOf(
+            "pluginVersion" to version,
+            "pluginName" to project.name,
+            "minecraftVersion" to System.getProperty("minecraftVersion"),
+            "kotlinVersion" to System.getProperty("kotlinVersion"),
+        )
     inputs.properties(props)
     filteringCharset = "UTF-8"
     filesMatching("plugin.yml") {
