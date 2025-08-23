@@ -1,7 +1,12 @@
-name: '$pluginName'
-version: '$pluginVersion'
+name: '$NAME'
+version: '$VERSION'
+api-version: '$MINECRAFT_VERSION'
 main: ru.joutak.template.EmptyPlugin
-api-version: '$minecraftVersion'
+description: "A template plugin"
+authors: ["EnderDissa", "Stunnerer", "s4dnex"]
+contributors: ["technosimp"]
+website: https://joutak.ru
+
 depend: []
 libraries:
-  - "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+  - "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION"
