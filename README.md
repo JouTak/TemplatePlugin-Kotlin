@@ -1,6 +1,6 @@
 # JouTak Plugin Template (Kotlin)
 
-Заготовка для плагина на JouTak (ДжойТек) (<ins>joutak.ru-mc.ru</ins>)
+Заготовка для плагина на JouTak (ДжоуТек) (<ins>joutak.ru</ins>)
 
 
 # Перед использованием
