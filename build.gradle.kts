@@ -47,7 +47,7 @@ tasks.processResources {
             .get()
             .substringBefore("-")
 
-    val commitHash = System.getenv("commitHash")
+    val commitHash = project.property("commitHash") as String?
 
     val website =
         if (repo.isBlank()) {
