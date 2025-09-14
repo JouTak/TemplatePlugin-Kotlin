@@ -8,8 +8,8 @@ project.group = group
 project.version = version
 
 plugins {
-    id("org.jetbrains.kotlin.jvm")
-    id("com.gradleup.shadow")
+    alias(libs.plugins.kotlinJvm)
+    alias(libs.plugins.shadow)
 }
 
 repositories {
@@ -23,26 +23,16 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:$minecraftVersion-R0.1-SNAPSHOT")
-    compileOnly("org.jetbrains.kotlin:kotlin-stdlib")
+    compileOnly(libs.kotlin)
+    compileOnly(libs.paper)
 }
 
 kotlin {
-    jvmToolchain(jdkVersion.toInt())
-}
-
-tasks.shadowJar {
-    archiveClassifier = ""
-    archiveFileName.set("${project.name}-${project.version}.jar")
-
-    val serverPath = System.getenv("SERVER_PATH")
-    if (System.getenv("TEST_PLUGIN_BUILD") != null) {
-        if (serverPath != null) {
-            destinationDirectory.set(file("$serverPath\\plugins"))
-        } else {
-            logger.warn("SERVER_PATH property is not set!")
-        }
-    }
+    jvmToolchain(
+        libs.versions.jdk
+            .get()
+            .toInt(),
+    )
 }
 
 tasks.jar {
@@ -51,16 +41,36 @@ tasks.jar {
 }
 
 tasks.processResources {
+    val minecraftVersion =
+        libs.versions.paper
+            .get()
+            .substringBefore("-")
+
+
     val props =
         mapOf(
             "NAME" to project.name,
             "VERSION" to project.version,
             "MINECRAFT_VERSION" to minecraftVersion,
             "KOTLIN_VERSION" to kotlinVersion,
+            "KOTLIN_VERSION" to libs.versions.kotlin.get(),
         )
     inputs.properties(props)
     filteringCharset = "UTF-8"
     filesMatching("plugin.yml") {
         expand(props)
+    }
+}
+
+tasks.shadowJar {
+    archiveFileName.set("${project.name}-${project.version}.jar")
+
+    if (System.getenv("TEST_PLUGIN_BUILD") != null) {
+        val serverPath = System.getenv("SERVER_PATH")
+        if (serverPath != null) {
+            destinationDirectory.set(file("$serverPath\\plugins"))
+        } else {
+            logger.warn("SERVER_PATH property is not set!")
+        }
     }
 }
