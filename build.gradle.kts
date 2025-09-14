@@ -33,6 +33,10 @@ kotlin {
     )
 }
 
+tasks.build {
+    dependsOn(tasks.shadowJar)
+}
+
 tasks.jar {
     enabled = false
 }
