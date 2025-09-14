@@ -1,8 +1,6 @@
 val group: String by project
 val version: String by project
-val minecraftVersion: String by project
-val jdkVersion: String by project
-val kotlinVersion: String by project
+val repo: String by project
 
 project.group = group
 project.version = version
@@ -36,7 +34,6 @@ kotlin {
 }
 
 tasks.jar {
-    finalizedBy("shadowJar")
     enabled = false
 }
 
@@ -46,15 +43,24 @@ tasks.processResources {
             .get()
             .substringBefore("-")
 
+    val commitHash = System.getenv("commitHash")
+
+    val website =
+        if (repo.isBlank()) {
+            "https://joutak.ru"
+        } else {
+            if (commitHash.isNullOrBlank()) repo else "$repo/tree/$commitHash"
+        }
 
     val props =
         mapOf(
             "NAME" to project.name,
             "VERSION" to project.version,
             "MINECRAFT_VERSION" to minecraftVersion,
-            "KOTLIN_VERSION" to kotlinVersion,
             "KOTLIN_VERSION" to libs.versions.kotlin.get(),
+            "WEBSITE" to website,
         )
+
     inputs.properties(props)
     filteringCharset = "UTF-8"
     filesMatching("plugin.yml") {
