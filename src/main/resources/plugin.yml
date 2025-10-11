@@ -1,12 +1,23 @@
 name: ${NAME}
 version: ${VERSION}
 api-version: ${MINECRAFT_VERSION}
-main: ru.joutak.template.EmptyPlugin
+main: ru.joutak.template.LifeStealPlugin
 description: 'A template plugin'
-authors: ['EnderDissa', 'Stunnerer', 's4dnex']
+authors: ['EnderDissa', 'Stunnerer', 's4dnex','ol1veshka']
 contributors: ['technosimp']
 website: ${WEBSITE}
 
 depend: []
 libraries:
   - 'org.jetbrains.kotlin:kotlin-stdlib:${KOTLIN_VERSION}'
+
+commands:
+  lifesteal:
+    description: Transfer hearts to other players
+    usage: /<command> give <player> <amount>
+  stats:
+    description: View lifesteal statistics
+    usage: /<command> [player]
+  top:
+    description: View top 10 players by kills
+    usage: /<command>

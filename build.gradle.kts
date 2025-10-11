@@ -10,6 +10,11 @@ plugins {
     alias(libs.plugins.shadow)
 }
 
+dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT") // Используйте вашу версию
+    implementation(kotlin("stdlib-jdk8"))
+}
+
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/") {
