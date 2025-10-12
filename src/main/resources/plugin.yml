@@ -2,10 +2,14 @@ name: ${NAME}
 version: ${VERSION}
 api-version: ${MINECRAFT_VERSION}
 main: ru.joutak.template.EmptyPlugin
-description: 'A template plugin'
-authors: ['EnderDissa', 'Stunnerer', 's4dnex']
+description: 'A plugin that allows you to create waves of mobs'
+authors: ['EnderDissa', 'Stunnerer', 's4dnex', 'Saldaw']
 contributors: ['technosimp']
 website: ${WEBSITE}
+commands:
+  mobRaid:
+    description: "Создаёт волну мобов"
+    usage: /<command>
 
 depend: []
 libraries:
