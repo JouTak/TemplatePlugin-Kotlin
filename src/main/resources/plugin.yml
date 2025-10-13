@@ -1,7 +1,7 @@
 name: ${NAME}
 version: ${VERSION}
 api-version: ${MINECRAFT_VERSION}
-main: ru.joutak.template.EmptyPlugin
+main: ru.joutak.template.MobRaid
 description: 'A plugin that allows you to create waves of mobs'
 authors: ['EnderDissa', 'Stunnerer', 's4dnex', 'Saldaw']
 contributors: ['technosimp']
@@ -10,7 +10,6 @@ commands:
   mobRaid:
     description: "Создаёт волну мобов"
     usage: /<command>
-
 depend: []
 libraries:
   - 'org.jetbrains.kotlin:kotlin-stdlib:${KOTLIN_VERSION}'
