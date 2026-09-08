@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 val group: String by project
 val version: String by project
 val repo: String by project
@@ -9,6 +11,8 @@ plugins {
     alias(libs.plugins.kotlinJvm)
     alias(libs.plugins.shadow)
 }
+
+val javaVersion = libs.versions.jdk.get().toInt()
 
 repositories {
     mavenCentral()
@@ -26,11 +30,10 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(
-        libs.versions.jdk
-            .get()
-            .toInt(),
-    )
+    jvmToolchain(javaVersion)
+    compilerOptions {
+        jvmTarget.set(JvmTarget.fromTarget(javaVersion.toString()))
+    }
 }
 
 tasks.build {
@@ -42,11 +45,6 @@ tasks.jar {
 }
 
 tasks.processResources {
-    val minecraftVersion =
-        libs.versions.paper
-            .get()
-            .substringBefore("-")
-
     val commitHash = project.findProperty("commitHash") as String?
 
     val website =
@@ -60,7 +58,7 @@ tasks.processResources {
         mapOf(
             "NAME" to project.name,
             "VERSION" to project.version,
-            "MINECRAFT_VERSION" to minecraftVersion,
+            "MINECRAFT_VERSION" to libs.versions.minecraft.get(),
             "KOTLIN_VERSION" to libs.versions.kotlin.get(),
             "WEBSITE" to website,
         )

@@ -1,6 +1,6 @@
 name: ${NAME}
 version: ${VERSION}
-api-version: ${MINECRAFT_VERSION}
+api-version: '${MINECRAFT_VERSION}'
 main: ru.joutak.template.EmptyPlugin
 description: 'A template plugin'
 authors: ['EnderDissa', 'Stunnerer', 's4dnex']
