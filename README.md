@@ -2,7 +2,7 @@
 
 Заготовка для плагина на JouTak (ДжоуТек) (<ins>joutak.ru</ins>)
 
-Шаблон рассчитан на **Minecraft/Paper 26.1.2**, **Kotlin 2.4.20** и **Java 25**.
+Шаблон рассчитан на **Minecraft/Paper 26.2**, **Kotlin 2.4.20** и **Java 25**.
 
 
 # Требования
